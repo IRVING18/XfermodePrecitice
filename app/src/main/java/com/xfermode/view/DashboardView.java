@@ -16,7 +16,7 @@ import com.xfermode.DisplayUtils;
  * Created by wangzheng on 2019/3/11 7:11 PM.
  * E-mail : ivring11@163.com
  **/
-public class Dashboard extends View {
+public class DashboardView extends View {
     public static final int   ANGLE  = 120;
     public static final float RADIUS = DisplayUtils.dip2px(150);
     public static final float LENGTH = DisplayUtils.dip2px(100);
@@ -26,7 +26,7 @@ public class Dashboard extends View {
     private PathDashPathEffect dashPathEffect;
 
 
-    public Dashboard(Context context, @Nullable AttributeSet attrs) {
+    public DashboardView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 
     }
