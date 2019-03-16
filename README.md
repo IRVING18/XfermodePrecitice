@@ -14,7 +14,6 @@
 - 5.drawLine画指针
 
 ## 二、画弧线 drawArc()
-![linear]()
  <img width="300" height=“100” src="https://github.com/IRVING18/notes/blob/master/android/file/angle.png"></img>
 > 注意:代码中ANGLE是代表图中下边小角的角度。
 
@@ -23,9 +22,29 @@
     
     ondraw()方法：
     //划弧线
-        canvas.drawArc(getWidth() / 2 - RADIUS, getHeight() / 2 - RADIUS, getWidth() / 2 + RADIUS, getHeight() / 2 + RADIUS, 90 + ANGLE / 2, 360 - ANGLE, false, paint);
+    canvas.drawArc(getWidth() / 2 - RADIUS, getHeight() / 2 - RADIUS, getWidth() / 2 + RADIUS, getHeight() / 2 + RADIUS, 90 + ANGLE / 2, 360 - ANGLE, false, paint);
 ```
 
 ## 三、画刻度 paint.setPathEffect()
 > PathDashPathEffect使用具体看：[PathEffect](https://github.com/IRVING18/notes/blob/master/android/自定义View/2、Paint.md)
 
+- 1、创建添加到PathDashPathEffect中的图形，也就是刻度块
+- 2、获取刻度间隔，根据PathMeasure获取弧线长度，然后根据弧线长度/刻度个数，获取刻度间隔。
+- 3、创建PathDashPathEffect
+
+```java
+   //1、创建添加到PathDashPathEffect中的图形，也就是刻度块
+   dashShapePath.addRect(0, -DisplayUtils.dip2px(5), dashWidth, DisplayUtils.dip2px(20), Path.Direction.CW);
+   //2、获取刻度间隔，根据PathMeasure获取弧线长度，然后根据弧线长度/刻度个数，获取刻度间隔。
+   //获取正常表盘狐线的长度，就把正常弧线的再写一遍，只是为了获取长度。
+   Path arcPath = new Path();
+   //正常弧线的再写一遍
+   arcPath.addArc(getWidth() / 2 - RADIUS, getHeight() / 2 - RADIUS, getWidth() / 2 + RADIUS, getHeight() / 2 + RADIUS, 90 + ANGLE / 2, 360 - ANGLE);
+   //获取弧线长度
+   PathMeasure pathMeasure = new PathMeasure(arcPath, false);
+   //获取每个刻度之间的间隔， 减去dashWidth 是因为最后一个刻度绘制的时候的角标是弧线的最后了，所以最后一个刻度超出了弧线边缘。
+   float advance = (pathMeasure.getLength() - dashWidth) / 20;
+   //3、创建PathDashPathEffect
+   //设置PathDashPathEffect 块用于draw中画刻度
+   dashPathEffect = new PathDashPathEffect(dashShapePath, advance, 0, PathDashPathEffect.Style.MORPH);
+```
