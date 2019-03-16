@@ -51,4 +51,4 @@
 
 ## 画指针 canvas.drawLine()
 > drawLine(startX，startY，stopX，stopY,paint);   
-> 因为drawLine是根据起始坐标和终点坐标画的，所以需要知道终点
+> 因为drawLine是根据起始坐标和终点坐标画的，所以需要知道终点，就需要三角函数了。
