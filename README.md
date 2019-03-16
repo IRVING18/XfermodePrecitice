@@ -48,3 +48,7 @@
    //设置PathDashPathEffect 块用于draw中画刻度
    dashPathEffect = new PathDashPathEffect(dashShapePath, advance, 0, PathDashPathEffect.Style.MORPH);
 ```
+
+## 画指针 canvas.drawLine()
+> drawLine(startX，startY，stopX，stopY,paint);   
+>
