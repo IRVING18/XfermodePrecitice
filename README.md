@@ -63,5 +63,7 @@ X = cos(90+ANGLE/2)*Length + getHeight()/2;
 #### 正余弦三角函数图
 ![linear](https://github.com/IRVING18/notes/blob/master/android/file/sin.png)
 ![linear](https://github.com/IRVING18/notes/blob/master/android/file/cos.png)
+![linear](https://github.com/IRVING18/notes/blob/master/android/file/sincircle.png)
 #### 三角函数示意图
 ![linear](https://github.com/IRVING18/notes/blob/master/android/file/sincos.png)
+
