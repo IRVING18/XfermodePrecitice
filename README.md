@@ -52,3 +52,12 @@
 ## 画指针 canvas.drawLine()
 > drawLine(startX，startY，stopX，stopY,paint);   
 > 因为drawLine是根据起始坐标和终点坐标画的，所以需要知道终点，就需要三角函数了。
+
+- 1.看图中指针在起始点时，X，Y坐标相对（0，0）点就是
+X = sin(90+ANGLE/2)*Length;
+X = cos(90+ANGLE/2)*Length;
+- 2.而我们在绘制指针时就是原点在(getWidth()/2,getHeight()/2)
+X = sin(90+ANGLE/2)*Length + getWidth()/2;
+X = cos(90+ANGLE/2)*Length + getHeight()/2;
+
+![]
