@@ -14,7 +14,8 @@
 - 5.drawLine画指针
 
 ## 二、画弧线 drawArc()
-![linear](https://github.com/IRVING18/notes/blob/master/android/file/angle.png)
+![linear]()
+ <img width="300" height=“100” src="https://github.com/IRVING18/notes/blob/master/android/file/angle.png"></img>
 > 注意:代码中ANGLE是代表图中下边小角的角度。
 
 ```java
